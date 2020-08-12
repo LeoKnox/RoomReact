@@ -9,7 +9,7 @@ export class Update extends Component {
         this.onChangeFloor = this.onChangeFloor.bind(this);
         this.onChangeWall = this.onChangeWall.bind(this);
         this.onChangeWidth = this.onChangeWidth.bind(this);
-        this.onChangeDateCreated = this.onChangeDateCreated.bind(this);
+        this.onChangeLength = this.onChangeLength.bind(this);
         this.onUpdateCancel = this.onUpdateCancel.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -35,9 +35,7 @@ export class Update extends Component {
                 floor: response.floor,
                 wall: response.wall,
                 width: response.width,
-                length: response.length,
-                dateCreated: new Date(response.dateCreated).toISOString().slice(0,10),
-                dateModified: new Date(response.dateCreated).toISOString().slice(0,10)
+                length: response.length
             })
         })
     }
@@ -66,15 +64,9 @@ export class Update extends Component {
         });
     }
 
-    onChangeLenth(e) {
+    onChangeLength(e) {
         this.setState({
             length: e.target.value
-        });
-    }
-
-    onChangeDateCreated(e) {
-        this.setState({
-            dateCreated: e.target.value
         });
     }
 
@@ -93,7 +85,7 @@ export class Update extends Component {
             floor: this.state.floor,
             wall: this.state.wall,
             width: parseInt(this.state.width),
-            length: parseInt(this.state.length),
+            length: parseInt(this.state.length)
         }
 
 
@@ -157,15 +149,6 @@ export class Update extends Component {
                                 />
                             </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label>Date Created</label>
-                        <input
-                            type="date"
-                            className="form-control"
-                            value={this.state.dateCreated}
-                            onChange={this.onChangeDateCreated}
-                        />
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-success">Update</button>
