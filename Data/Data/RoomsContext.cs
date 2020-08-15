@@ -9,10 +9,11 @@ namespace ReactRoom.Data.Data
 {
     public class RoomsContext : DbContext
     {
-        public DbSet<Room> Room { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public RoomsContext(DbContextOptions<RoomsContext> options) : base(options)
         {
+
         }
+
+        public DbSet<Room> Room { get; set; }
     }
 }
