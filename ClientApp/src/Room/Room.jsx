@@ -40,6 +40,7 @@ export class Room extends Component
                 width: response.width,
                 length: response.length
             })
+        })
     }
 
     this.populateRoomsData() {
@@ -57,7 +58,7 @@ export class Room extends Component
                 <em>Loading...</em>
             </p>
         ) : (
-                this.renderAllRoomsTable(this.state.rooms)    
+                this.renderAllRoomsTable()    
             )
 
         return (
