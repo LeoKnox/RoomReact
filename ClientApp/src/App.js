@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 
 import './custom.css'
 import { Rooms } from './Room/Rooms';
+import { Room } from './Room/Room';
 import { Create } from './Room/Create';
 import { Update } from './Room/Update';
 import { Delete } from './Room/Delete';
@@ -20,6 +21,7 @@ export default class App extends Component {
         <Route path='/create' component={Create} />
         <Route path='/update/:id' component={Update} />
         <Route path='/delete/:id' component={Delete} />
+        <Route path='/room' component={Room} />
       </Layout>
     );
   }
