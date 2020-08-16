@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import axios from 'axios';
 
-export class Rooms extends Component
+export class Room extends Component
 {
     constructor(props) {
         super(props);
