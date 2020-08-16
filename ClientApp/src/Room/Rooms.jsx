@@ -37,7 +37,6 @@ export class Rooms extends Component
     }
 
     renderAllRoomsTable(rooms) {
-        console.log(rooms);
         return (
             <table className="table table-striped">
                 <thead>
