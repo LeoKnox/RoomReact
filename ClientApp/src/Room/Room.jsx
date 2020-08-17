@@ -6,31 +6,18 @@ export class Room extends Component
     constructor(props) {
         super(props);
 
-        this.onRoomUpdate = this.onRoomUpdate.bind(this);
-        this.onRoomDelete = this.onRoomDelete.bind(this);
-
         this.state = {
-            rooms: [],
-            loading: false
+            name: '',
+            floor: '',
+            wall: '',
+            width: null,
+            length: null
         }
     }
 
     componentDidMount() {
-        this.populateRoomsData();
-    }
-
-    onRoomUpdate(id) {
-        const { history } = this.props;
-        history.push('/update/' + id);
-    }
-
-    onRoomDelete(id) {
-        const { history } = this.props;
-        history.push('/delete/' + id);
-    }
-
-    populateRoomsData() {
-        axios.get("api/Room/SingleRoom/" + 1).then(room => {
+        const { id } = 1;
+        axios.get("api/Room/SingleRoom/" + id).then(room => {
             const response = room.data;
 
             this.setState({
@@ -43,30 +30,12 @@ export class Room extends Component
         })
     }
 
-    this.populateRoomsData() {
+    render() {
         return (
             <div>
                 <h3>Single Room</h3>
-                <p>{room.name}</p>
+                <p>tt {this.state.name}</p>
             </div>
         );
-    }
-
-    render() {
-        let content = this.state.loading ? (
-            <p>
-                <em>Loading...</em>
-            </p>
-        ) : (
-                this.renderAllRoomsTable()    
-            )
-
-        return (
-            <div>
-                <h1>All Rooms</h1>
-                <p>Here you can see all Rooms</p>
-                {content}
-            </div>
-        )
     }
 }
